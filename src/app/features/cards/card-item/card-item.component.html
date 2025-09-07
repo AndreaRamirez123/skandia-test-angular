@@ -1,0 +1,9 @@
+<div class="cards-container">
+  <div class="card" ="let card of cards">
+    <img [src]="getImage(card.nameProduct)" alt="{{card.nameProduct}}">
+    <h3>{{ card.nameProduct }}</h3>
+    <p class="number">#{{ card.numberProduct }}</p>
+    <p class="detail">{{ card.detaildProduct }}</p>
+    <p class="balance">Saldo: {{ card.balanceProduct | currency:'COP':'symbol' }}</p>
+  </div>
+</div>

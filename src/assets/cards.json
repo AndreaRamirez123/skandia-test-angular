@@ -1,0 +1,27 @@
+[
+  {
+    "title": "Ahorro",
+    "subtitle": "Plan de inversión",
+    "description": "Invierte en tu futuro con nuestro plan de ahorro",
+    "price": 150,
+    "tags": ["finanzas", "ahorro"],
+    "image": "https://picsum.photos/400/200?random=1"
+  },
+  {
+    "title": "Seguro",
+    "subtitle": "Protección familiar",
+    "description": "Seguro de vida para proteger a los que amas",
+    "price": 300,
+    "tags": ["protección", "vida"],
+    "image": "https://picsum.photos/400/200?random=2"
+  },
+  {
+    "title": "Inversión",
+    "subtitle": "Rendimiento garantizado",
+    "description": "Haz crecer tu dinero con inversiones seguras",
+    "price": 500,
+    "tags": ["inversión", "rendimiento"],
+    "image": "https://picsum.photos/400/200?random=3"
+  }
+]
+

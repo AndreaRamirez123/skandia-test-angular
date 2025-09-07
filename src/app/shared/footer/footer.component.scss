@@ -1,0 +1,74 @@
+@use 'variables' as v;
+
+
+.footer {
+  background-color: v.$primary-color;
+  color: #fff;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+
+  .footer-left {
+    flex: 1;
+    min-width: 280px;
+
+    .footer-logo {
+      width: 150px;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      margin: 0.5rem 0;
+      line-height: 1.4;
+    }
+  }
+
+  .footer-right {
+    flex: 1;
+    min-width: 280px;
+
+    .footer-links {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 1rem 0;
+
+      li {
+        margin-bottom: 0.5rem;
+
+        a {
+          color: #fff;
+          text-decoration: none;
+          transition: color 0.2s;
+
+          &:hover {
+            color: v.$secondary-color;
+          }
+        }
+      }
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 1rem;
+
+      a img {
+        width: 24px;
+        height: 24px;
+        transition: transform 0.2s;
+
+        &:hover {
+          transform: scale(1.2);
+        }
+      }
+    }
+  }
+}

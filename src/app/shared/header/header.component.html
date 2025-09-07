@@ -1,0 +1,20 @@
+<header class="header">
+  <div class="container">
+    <!-- Logo -->
+    <div class="logo">
+      <img src="assets/logo-skandia.png" alt="Skandia logo" />
+    </div>
+
+    <!-- Botón hamburguesa -->
+    <button class="menu-toggle" (click)="toggleMenu()">
+      ☰
+    </button>
+
+    <!-- Navegación -->
+    <nav class="nav" [class.open]="menuOpen">
+      <a routerLink="/" (click)="closeMenu()">Inicio</a>
+      <a routerLink="/" (click)="closeMenu()">Productos</a>
+      <a routerLink="/" (click)="closeMenu()">Contacto</a>
+    </nav>
+  </div>
+</header>
