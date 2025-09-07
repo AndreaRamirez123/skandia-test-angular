@@ -1,59 +1,142 @@
-# SkandiaTest
+# Prueba Técnica Front End - Skandia
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.2.
+Prueba técnica desarrollada con **Angular 17** siguiendo las buenas prácticas de arquitectura, consumo de API y diseño responsive.  
+El objetivo principal fue construir una aplicación basada en el diseño proporcionado y consumir la API de tarjetas para mostrar productos dinámicamente.
 
-## Development server
+---
 
-To start a local development server, run:
+## Requerimientos de la prueba
 
-```bash
+✅ Utilizar el framework **Angular** en su última versión estable.  
+✅ Uso de **SCSS** con variables globales para estilos.  
+✅ Estructura modular y componentes standalone.  
+✅ Consumo de la API de tarjetas:  
+   [https://62e152f8fa99731d75d44571.mockapi.io/api/v1/test-front-end-skandia/cards](https://62e152f8fa99731d75d44571.mockapi.io/api/v1/test-front-end-skandia/cards)  
+✅ Interfaz **responsive** siguiendo el diseño de referencia:  
+   [Adobe XD - Diseño base](https://xd.adobe.com/view/7520751b-2b53-4b0f-9613-527817e8cc92-2073/specs/)  
+✅ Estructura de proyecto organizada (core, shared, features).  
+✅ Manejo de errores en llamadas HTTP.  
+✅ Uso de **HTML5, CSS3, SCSS** y buenas prácticas de código.  
+✅ Proyecto versionado con Git (repositorio entregado).  
+
+---
+
+##  Estructura del proyecto
+
+src/
+├── app/
+│ ├── core/ # Servicios, modelos, interceptores
+│ │ └── services/ # CardsService para consumo de API
+│ ├── features/ # Funcionalidades principales
+│ │ ├── home/ # Página de inicio
+│ │ ├── cards/ # Listado dinámico de productos/cards
+│ │ └── goal-success/ # Pantalla de éxito de objetivo
+│ └── shared/ # Componentes reutilizables (header, footer, hero)
+├── assets/ # Recursos estáticos (logo, imágenes)
+└── styles/ # Variables SCSS y estilos globales
+
+
+## Requisitos previos
+
+- Node.js 20+
+- Angular CLI 17+
+
+jecución del proyecto
+
+ ## Como clonar el repositorio:
+
+git clone https://github.com/AndreaRamirez123/skandia-test-angular.git
+cd skandia-test-angular
+
+
+Instalar dependencias:
+
+npm install
+
+Levantar servidor de desarrollo:
+
 ng serve
-```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+Abrir en http://localhost:4200
 
-## Code scaffolding
+## Consumo de API
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Servicio: cards.service.ts
 
-```bash
-ng generate component component-name
-```
+private apiUrl = 'https://62e152f8fa99731d75d44571.mockapi.io/api/v1/test-front-end-skandia/cards';
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+getCards(): Observable<Card[]> {
+  return this.http.get<Card[]>(this.apiUrl).pipe(
+    retry(2),
+    catchError((error) => {
+      console.error('Error al obtener tarjetas', error);
+      return throwError(() => new Error('No se pudieron cargar las tarjetas'));
+    })
+  );
+}
 
-```bash
-ng generate --help
-```
 
-## Building
+# Características:
 
-To build the project run:
+Consumo vía HttpClient.
 
-```bash
-ng build
-```
+Manejo de errores con catchError.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Retries automáticos para mejorar resiliencia.
 
-## Running unit tests
+Modelado de datos con card.model.ts.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+# Funcionalidades implementadas
 
-```bash
-ng test
-```
+Header y Footer responsivos.
 
-## Running end-to-end tests
+Hero Section con mensaje de bienvenida.
 
-For end-to-end (e2e) testing, run:
+Listado dinámico de tarjetas conectado a la API.
 
-```bash
-ng e2e
-```
+Estilos globales con SCSS (variables en src/styles/variables.scss).
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+Manejo de errores en peticiones HTTP.
 
-## Additional Resources
+Navegación con Angular Router (Home, Goal Success).
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Diseño responsive (flexbox / grid).
+
+# Calidad del código
+
+Código limpio y comentado.
+
+Estructura clara en carpetas.
+
+Buenas prácticas Angular (standalone components, servicios).
+
+Variables SCSS para consistencia de estilos.
+
+Preparado para pruebas unitarias (Jasmine/Karma).
+
+Manejo de errores centralizado.
+
+
+# En la presentación se mostrará:
+
+Estructura del proyecto y carpetas.
+
+Ejecución con ng serve.
+
+Consumo en vivo de la API de tarjetas.
+
+Estilos responsivos en distintas resoluciones.
+
+Manejo de errores y calidad del código.
+
+# Autor
+
+Andrea Paola Ramírez Torres
+ Ingeniera de Sistemas |  Desarrolladora Frontend
+ Contacto: andrearamirezt1992@gmail.com
+ GitHub: https://github.com/AndreaRamirez123
+
+
+
+
+
